@@ -22,7 +22,8 @@ byte numberSix = 67;
 short classLP = 23;
 short classAS = 27;
 short classEA = 30;
-int everyStudentPaper = 480 / (classEA+classAS+classLP);
+short boughtPaper = 480;
+int everyStudentPaper = boughtPaper / (classEA+classAS+classLP);
 System.out.println("На каждого ученика рассчитано " + everyStudentPaper + " листов бумаги");
 
 byte performanceBottle = 16/2;
@@ -32,6 +33,11 @@ System.out.println("За 20 минут машина произвела " + perfo
         System.out.println("За три дня машина произвела " + performanceBottle*60*24*3 + " бутылок");
         System.out.println("За месяц машина произвела " + performanceBottle*60*24*30 + " бутылок");
 
+  byte consumptionWhite = 2;
+  byte consumptionBrown = 4;
+  int consumptionFull = consumptionWhite + consumptionBrown;
+  short boughtColor = 120;
+  System.out.println("В школе, где " + boughtColor/consumptionFull +" классов, нужно  " +boughtColor/consumptionFull*consumptionWhite + " банок белой краски и " + boughtColor/consumptionFull*consumptionBrown + " банок коричневой краски");
 
+  }
     }
-}
