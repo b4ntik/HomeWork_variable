@@ -4,82 +4,94 @@ public class Main {
     public static void main(String[] args) {
         // задание №1
         // добавляеем чуть-чуть интерактива
-        Scanner in = new Scanner(System.in);//ввод числа из консоли
-        System.out.println("Введите возраст человека"); // вводим возраст
-        int age = in.nextInt();
-        if (age >= 18) {
-            System.out.println("Если возраст человека равен " + age + " то он совершеннолетний");
+        Scanner in = new Scanner(System.in);//ввод операционной системы из консоли
+        System.out.println("Введите операционную систему вашего телефона буквами (iOS или Android)"); // вводим тип ОС
+        String osType = in.nextLine().toLowerCase();//привожу вводимые значения к нижнему регситру для простоты
+        boolean containsIos = osType.contains("ios");//равна true если в строке есть ios
+        boolean containsDroid = osType.contains("android");//равна true если в строке есть android
+        byte clientOS = 0;
+        if (containsIos) {
+            clientOS = 0;
+        } else if (containsDroid) {
+            clientOS = 1;
         } else {
-            System.out.println("Если возраст человека равен " + age + " то он несовершеннолетний");
+            System.out.println("Такую операционную систему я не знаю");
         }
         //задание №2
-        int streetTemperature;//вводим уличную температуру
-        System.out.println("Введите температуру воздуха на улице"); // вводим уличную температуру
-        streetTemperature = in.nextInt();
-        if (streetTemperature > 5) {
-            System.out.println("На улице " + streetTemperature + " градусов, можно идти без шапки");
-        } else {
-            System.out.println("На улице " + streetTemperature + " градусов, нужно надеть шапку");
+        short clientDeviceYear;//год выпуска телефона
+        System.out.println("Введите год выпуска телефона"); // вводим год выпуска
+        clientDeviceYear = in.nextShort();
+        if (clientDeviceYear < 2015) {
+            if (clientOS == 0) {
+                System.out.println("Установите облегченную версию приложения для iOs по ссылке");
+            } else if (clientOS == 1) {
+                System.out.println("Установите облегченную версию для Android по ссылке");
+            }
         }
         //задание №3
-        System.out.println("Введите скорость ");//ввод скорости
-        int speed = in.nextInt();
-        if (speed > 60) {
-            System.out.println("Если скорость " + speed + ", то придется заплатить штраф");
-        } else {
-            System.out.println("Если скорость " + speed + ", то можно ездить спокойно");
+        System.out.println("Введите год");//ввод года
+        int year = in.nextInt();
+        if (year > 1584) { //сразу проверяем, что год больше 1584, тогда едем дальше
+            if (year % 4 == 0 && year % 100 != 0 || year % 400 == 0) { //условие - год делится на 4, не делится на 100 и делится на 400
+                System.out.println("Год високосный");
+            } else {
+                System.out.println("Год обычный");
+            }
         }
         //задание №4
-        System.out.println("Введите возраст ");
-        int humanAge = in.nextInt();
-        if (humanAge > 2 && humanAge <= 6) {
-            System.out.println("Если возраст равен " + humanAge + " то ему нужно ходить в детский сад");
-        } else if (humanAge >= 7 && humanAge <= 17) {
-            System.out.println("Если возраст равен " + humanAge + " то ему нужно ходить в школу");
-        } else if (humanAge >= 18 && humanAge <= 24) {
-            System.out.println("Если возраст равен " + humanAge + " то его место в университете");
-        } else if (humanAge > 24) {
-            System.out.println("Если возраст равен " + humanAge + " то ему нужно ходить на работу");
+        int deliveryDistance = 95;//дистанция доставки
+        if (deliveryDistance > 100 || deliveryDistance < 0) {
+            System.out.println("На такие расстояния доставки нет");
+        } else if (deliveryDistance > 0 && deliveryDistance <= 20) {
+            System.out.println("Потребуется дней: 1");
+        } else if (deliveryDistance > 20 && deliveryDistance <= 60) {
+            System.out.println("Потребуется дней: 2");
+        } else if (deliveryDistance > 60 && deliveryDistance <= 100) {
+            System.out.println("Потребуется дней: 3");
         }
         //задание №5
-        System.out.println("Введите возраст ребенка");
-        int childAge = in.nextInt();
-        if (childAge < 5) {
-            System.out.println("Если возраст ребенка равен " + childAge + ", то ему нельзя кататься на аттракционе");
-        } else if (childAge >= 5 && childAge <= 14) {
-            System.out.println("Если возраст ребенка равен " + childAge + ", то ему можно кататься на аттракционе в сопровождении взрослого");
-        } else if (childAge > 14) {
-            System.out.println("Если возраст ребенка равен " + childAge + ", то ему можно кататься на аттракционе без сопровождения взрослого");
-        }
-        //задание №6
-        System.out.println("Введите количество пассажиров");
-        int passengerCount = in.nextInt();
-        if (passengerCount > 1 && passengerCount <= 60) {
-            System.out.println("Для такого количества паасжиров еще остались сидяиче места");
-        } else if (passengerCount > 60 && passengerCount <= 102) {
-            System.out.println("Такое количество пассажиров влезет, но часть будет стоять");
-        } else if (passengerCount < 0 || passengerCount > 102) {
-            System.out.println("Для такого количества людей мест нет");
-        }
-        //задание №7
-        Scanner inTwo = new Scanner(System.in);//добавляем количество вводимых переменных
-        Scanner inThree = new Scanner(System.in);
-        System.out.println("Введите первое число");
-        int one = in.nextInt();
-        System.out.println("Введите второе число");
-        int two = inTwo.nextInt();
-        System.out.println("Введите третье число");
-        int three = inThree.nextInt();
-        if (one > two && one > three) {
-            System.out.println("Максимальное из введенных чисел - первое. Это  " + one);
-        } else if (two > one && two > three) {
-            System.out.println("Максимальное из введенных чисел - второе. Это  " + two);
-        } else if (three > two && three > one) {
-            System.out.println("Максимальное из введенных чисел - третье. Это " + three);
+        System.out.println("Введите номер месяца");
+        int monthNumber = in.nextInt();
+        if (monthNumber < 0 || monthNumber > 12) {
+            return;
+        } else switch (monthNumber) {
+            case 12:
+                System.out.println("Это зимний месяц");
+                break;
+            case 1:
+                System.out.println("Это зимний месяц");
+                break;
+            case 2:
+                System.out.println("Это зимний месяц");
+                break;
+            case 3:
+                System.out.println("Это весенний месяц");
+                break;
+            case 4:
+                System.out.println("Это весенний месяц");
+                break;
+            case 5:
+                System.out.println("Это весенний месяц");
+                break;
+            case 6:
+                System.out.println("Это летний месяц");
+                break;
+            case 7:
+                System.out.println("Это летний месяц");
+                break;
+            case 8:
+                System.out.println("Это летний месяц");
+                break;
+            case 9:
+                System.out.println("Это осенний месяц");
+                break;
+            case 10:
+                System.out.println("Это осенний месяц");
+                break;
+            case 11:
+                System.out.println("Это осенний месяц");
+                break;
+
         }
     }
 }
-
-
-
-
